@@ -2,21 +2,19 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from cassandra.cluster import Cluster
 import cassandra
-from .libs.serialize import default_serialize, xref_record, serialize_stableids
+from models import cassandra_connect
+from .libs.serialize import default_serialize, serialize_stableids
 from .libs.taxon import find_taxon
 import json
 import pprint
-
-cluster = Cluster(['127.0.0.1'], protocol_version=3)
-cluster.register_user_type('ensembl', 'xref_record', xref_record)
-session = cluster.connect('ensembl')
-session.row_factory = cassandra.query.ordered_dict_factory
 
 def showapi(request):
 
     return
 
 def symbolbyname(request, symbol, species=None):
+
+    session = cassandra_connect()
 
     filter = {'name': symbol}
     query = "SELECT name, species, xrefs FROM xrefbyname WHERE name = %(name)s"
@@ -38,6 +36,8 @@ def symbolbyname(request, symbol, species=None):
     return HttpResponse(data, content_type="application/json")
 
 def idbysymbol(request, symbol, species=None):
+
+    session = cassandra_connect()
 
     filter = {'name': symbol}
     query = "SELECT name, species, stable_ids FROM xrefbyname WHERE name = %(name)s"

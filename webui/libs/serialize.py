@@ -12,8 +12,6 @@ def default_serialize(obj):
 
 def serialize_stableids(obj):
 
-    pprint.pprint(obj)
-
     json_obj = {'name': obj['name'],
                 'species': obj['species']
                 }
