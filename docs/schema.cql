@@ -68,7 +68,7 @@ CREATE TABLE Ensembl.molecules (
   assembly_name text,
   biotype text,
   transcripts set<frozen <Ensembl.transcript>>,
-  PRIMARY KEY (species, id)
+  PRIMARY KEY (id)
 ;
 // WITH comment='Base unit for a physical molecule';
 

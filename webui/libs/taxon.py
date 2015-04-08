@@ -1,3 +1,6 @@
+import re
+import pprint
+
 taxons = {
     'homo_sapiens': 9606,
     'human': 9606,
@@ -72,3 +75,31 @@ def find_taxon(id):
             return taxons[id]
 
     raise Exception("Unknown taxonomy")
+
+def find_molecule_type(id):
+
+    m = re.search(r"([A-Za-z]+)([A-Za-z])(\d+)", id)
+
+    return m.group(2).upper()
+
+def find_transcript_rec(rows, id):
+
+    for t in rows['transcripts']:
+
+        if t['id'] == id:
+            return t
+
+    return None
+
+def find_exon_rec(rows, id, path):
+
+    t_rows = find_transcript_rec(rows, path['transcript'])
+
+    if not t_rows:
+        return None
+
+    for e in t_rows['exons']:
+        if e['id'] == id:
+            return e
+
+    return None

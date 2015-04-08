@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^lookup/symbol/(?P<symbol>\w+)/$', views.symbolbyname, name='symbolbyname'),
     url(r'^xrefs/symbol/(?P<symbol>\w+)/(?P<species>\w+)/$', views.idbysymbol, name='idbysymbol'),
     url(r'^xrefs/symbol/(?P<symbol>\w+)/$', views.idbysymbol, name='idbysymbol'),
+    url(r'^lookup/id/(?P<id>\w+)/$', views.moleculebyid, name='moledulebyid'),
 )

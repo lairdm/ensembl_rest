@@ -1,0 +1,24 @@
+<html>
+<body>
+<h1>REST Services available:</h1>
+
+<h2>Find a symbol in external databases:</h2>
+
+<a href="/lookup/symbol/BRCA2/">/lookup/symbol/BRCA2/</a><br />
+<a href="/lookup/symbol/BRCA2/human/">/lookup/symbol/BRCA2/human/</a><br />
+<a href="/lookup/symbol/IRAK4/">/lookup/symbol/IRAK4/</a><br />
+
+<h2>Lookup an external symbol and return Ensembl objects linked to it:</h2>
+
+<a href="/xrefs/symbol/BRCA2/">/xrefs/symbol/BRCA2/</a><br />
+<a href="/xrefs/symbol/BRCA2/human/">/xrefs/symbol/BRCA2/human/</a><br />
+<a href="/xrefs/symbol/IRAK4/">/xrefs/symbol/IRAK4/</a><br />
+
+<h2>Find the species and database from a single identifier:</h2>
+
+<a href="/lookup/id/ENSG00000001617/">/lookup/id/ENSG00000001617/</a><br />
+<a href="/lookup/id/ENST00000413852/">/lookup/id/ENST00000413852/</a><br />
+<a href="/lookup/id/ENSE00000331191/">/lookup/id/ENSE00000331191/</a><br />
+&nbsp;<br />
+</body>
+</html>
