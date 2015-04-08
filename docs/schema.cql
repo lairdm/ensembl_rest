@@ -77,5 +77,5 @@ CREATE TABLE Ensembl.molecule_root (
   species int,
   gene_id text,
   transcript_id text,
-  PRIMARY KEY (species, id)
+  PRIMARY KEY (id)
 );
