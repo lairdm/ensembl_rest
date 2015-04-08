@@ -8,8 +8,8 @@ from .libs.taxon import find_taxon
 
 def cassandra_connect():
 
-    cluster = Cluster(['192.168.1.7'], protocol_version=3)
-#    cluster = Cluster(['127.0.0.1'], protocol_version=3)
+#    cluster = Cluster(['192.168.1.7'], protocol_version=3)
+    cluster = Cluster(['127.0.0.1'], protocol_version=3)
     cluster.register_user_type('ensembl', 'xref_record', xref_record)
     cluster.register_user_type('ensembl', 'exon', base_udt)
     cluster.register_user_type('ensembl', 'translation', base_udt)
