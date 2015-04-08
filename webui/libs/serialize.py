@@ -20,8 +20,9 @@ def serialize_stableids(obj):
                 }
 
     json_obj['ids'] = []
-    for id in obj['stable_ids']:
-        json_obj['ids'].append({'id': id, 'type': 'gene'})
+    if obj['stable_ids']:
+        for id in obj['stable_ids']:
+            json_obj['ids'].append({'id': id, 'type': 'gene'})
 
     return json_obj
 

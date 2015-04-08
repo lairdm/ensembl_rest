@@ -8,7 +8,6 @@ from .libs.taxon import find_taxon
 
 def cassandra_connect():
 
-#    cluster = Cluster(['192.168.1.7'], protocol_version=3)
     cluster = Cluster(['127.0.0.1'], protocol_version=3)
     cluster.register_user_type('ensembl', 'xref_record', xref_record)
     cluster.register_user_type('ensembl', 'exon', base_udt)
@@ -49,7 +48,7 @@ def lookup_molecules(id, *args, **kwargs):
     else:
         col_str = '*'
 
-    query = "SELECT " + col_str + " FROM molecules WHERE species = 9606 AND id = %(id)s"
+    query = "SELECT " + col_str + " FROM molecules WHERE id = %(id)s"
 
     rows = session.execute(query, filter)
 
@@ -61,7 +60,7 @@ def find_parent_gene(id):
     session = cassandra_connect()
 
     filter = {'id': id}
-    query = "SELECT * from molecule_root WHERE id = %(id)s AND species = 9606"
+    query = "SELECT * from molecule_root WHERE id = %(id)s"
 
     rows = session.execute(query, filter)
 
